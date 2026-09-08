@@ -41,6 +41,10 @@ vector<vector<int>> threeSum(vector<int> &nums)
                 {
                     j++;
                 }
+                while (j < k && nums[k] == nums[k + 1])
+                {
+                    k--;
+                }
             }
         }
     }
@@ -50,23 +54,56 @@ vector<vector<int>> threeSum(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {-1, 0, 1, 2, -1, 4};
+    int size;
+    cout << "Enter size of the array : ";
+    cin >> size;
+
+    cout << endl;
+
+    vector<int> nums(size);
+
+    cout << "Enter all the elements of the array : ";
+
+    for (int i = 0; i < size; i++)
+    {
+        cin >> nums[i];
+    }
+
+    cout << endl;
+
+    cout << "The array is : { ";
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << nums[i];
+        if (i != size - 1)
+        {
+            cout << ", ";
+        }
+    }
+
+    cout << " }";
+    cout << endl;
+    cout << endl;
 
     vector<vector<int>> answer = threeSum(nums);
 
     cout << "The triplets are : " << endl;
 
-    for (int i = 0; i < answer.size(); i++)
+    for (int i = 0; i < answer.size(); i++) // answer.size() means number of triplets
     {
-        cout << "[ ";
+        cout << "{ ";
 
         for (int j = 0; j < answer[i].size(); j++)
         {
-            cout << answer[i][j] << " ";
-            cout << ", ";
+            cout << answer[i][j];
+            if (j != answer[i].size() - 1)
+            {
+                cout << ", ";
+            }
         }
 
-        cout << "]" << endl;
+        cout << " }" << endl;
     }
 
     return 0;
