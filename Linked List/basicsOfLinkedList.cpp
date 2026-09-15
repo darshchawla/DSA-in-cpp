@@ -1,28 +1,26 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-class Node
+struct Node
 {
 public:
     int data;
     Node *next;
 
-    // Constuctor
-    Node(int data)
+public:
+    Node(int data1, Node *next1)
     {
-        this->data = data;
-        this->next = NULL;
+        data = data1;
+        next = next1;
     }
 };
 
 int main()
 {
-
-    Node *node1 = new Node(7);
-
-    cout << "Data of the node is : " << node1->data << endl;
-
-    cout << "Address of next node is : " << node1->next << endl;
+    vector<int> arr = {2, 5, 8, 7};
+    Node *y = new Node(arr[0], nullptr);
+    cout << y;
 
     return 0;
 }
