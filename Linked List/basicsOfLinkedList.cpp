@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-struct Node
+class Node
 {
 public:
     int data;
@@ -19,7 +19,10 @@ public:
 int main()
 {
     vector<int> arr = {2, 5, 8, 7};
-    Node *y = new Node(arr[0], nullptr);
+    Node x= Node(arr[0],nullptr);
+    Node *y = &x;
+    cout<<x.data<<endl;
+    cout<<x.next<<endl;
     cout << y;
 
     return 0;
