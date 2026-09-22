@@ -3,40 +3,18 @@
 #include <cmath>
 using namespace std;
 
-bool isPrime(int i)
-{
-    if (i < 2)
-        return false;
-
-    for (int j = 2; j <= sqrt(i); j++)
-    {
-        if (i % j == 0)
-        {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 vector<int> prime(int n)
 {
     vector<int> answer;
 
-    for (int i = 1; i <= sqrt(n); i++)
+    for (int i = 2; i <= n; i++)
     {
         if (n % i == 0)
         {
-            if (isPrime(i))
+            answer.push_back(i);
+            while (n % i == 0)
             {
-                answer.push_back(i);
-            }
-            if (n / i != i)
-            {
-                if (isPrime(n / i))
-                {
-                    answer.push_back(n / i);
-                }
+                n = n / i;
             }
         }
     }

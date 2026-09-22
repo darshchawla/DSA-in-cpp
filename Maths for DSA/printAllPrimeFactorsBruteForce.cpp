@@ -22,7 +22,6 @@ bool isPrime(int i)
 vector<int> prime(int n)
 {
     vector<int> answer;
-    int count = 0;
 
     for (int i = 2; i <= n; i++)
     {
