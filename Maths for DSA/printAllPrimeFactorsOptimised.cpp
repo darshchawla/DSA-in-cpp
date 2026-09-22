@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 vector<int> prime(int n)
 {
     vector<int> answer;
 
-    for (int i = 2; i <= n; i++)
+    for (int i = 2; i <= sqrt(n); i++)
     {
         if (n % i == 0)
         {
@@ -16,6 +17,10 @@ vector<int> prime(int n)
                 n = n / i;
             }
         }
+    }
+    if (n != 1)
+    {
+        answer.push_back(n);
     }
 
     return answer;
