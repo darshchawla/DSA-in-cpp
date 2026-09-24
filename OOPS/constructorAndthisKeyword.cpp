@@ -1,51 +1,75 @@
 #include <iostream>
 using namespace std;
 
-class Pokemon // Class of Pokemon Data type
+class Teacher
 {
-public:
-    // properties
-    string name;
-    int health;
-    int attack;
-    int defence;
-    char level;
+private:
+    double salary;
 
-    // Default Constructor
-    Pokemon()
+public:
+    // properties // attributes
+    string name;
+    string department;
+    string subject;
+
+    // Default constructor / Non - Parameterised constructor
+    Teacher()
     {
+        department = "IT";
     }
 
     // Parameterised Constructor
-    Pokemon(int health)
+    Teacher(string name, string department, string subject, double salary)
     {
-        cout << "this -> " << this << endl;
-        this->health = health;
+        this->name = name;
+        this->department = department;
+        this->subject = subject;
+        this->salary = salary;
+    }
+
+    // methods // member functions
+    void changeDepartment(string newDepartment)
+    {
+        department = newDepartment;
+    }
+
+    // Setters
+    void setSalary(double s)
+    {
+        salary = s;
+    }
+
+    // Getters
+    double getSalary()
+    {
+        return salary;
+    }
+
+    void getInfo()
+    {
+        cout << "Name : " << name << endl;
+        cout << "Subject : " << subject << endl;
+        cout << "Department : " << department << endl;
+        cout << "Salary : " << salary << endl;
     }
 };
 
 int main()
 {
+    Teacher t1;
+    t1.name = "Suresh";
+    t1.subject = "C++";
+    t1.setSalary(370000);
 
-    // Creation of object
-    Pokemon p1;
-
-    p1.name = "Pikachu.";
-    p1.health = 90;
-    p1.attack = 100;
-    p1.defence = 100;
-    p1.level = 'A';
-
-    cout << "Name of the pokemon -> " << p1.name << endl;
-    cout << "Health -> " << p1.health << endl;
-    cout << "Attack -> " << p1.attack << endl;
-    cout << "Defence -> " << p1.defence << endl;
-    cout << "Level -> " << p1.level << endl;
+    cout << "Name : " << t1.name << endl;
+    cout << "Subject : " << t1.subject << endl;
+    cout << "Department : " << t1.department << endl;
+    cout << "Salary : " << t1.getSalary() << endl;
 
     cout << endl;
 
-    Pokemon p2(100);
-    cout << "Address of p1 : " << &p2 << endl;
+    Teacher t2("Rajesh", "Computer Science", "C++", 40000);
+    t2.getInfo();
 
     return 0;
 }
