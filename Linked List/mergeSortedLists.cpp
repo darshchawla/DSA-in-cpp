@@ -77,7 +77,7 @@ int main()
 
     cout << "The second linked list is : ";
     insertAtTail(tail2, 15);
-    insertAtTail(tail2, 21);
+    insertAtTail(tail2, 18);
     insertAtTail(tail2, 35);
     printLL(head2);
 
