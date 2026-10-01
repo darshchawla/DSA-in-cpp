@@ -2,19 +2,8 @@
 #include <stack>
 using namespace std;
 
-int main()
+void reverseString(string str)
 {
-    string str;
-
-    cout << "Enter a string : ";
-    getline(cin, str);
-
-    cout << endl;
-
-    cout << "The string is : " << str << endl;
-
-    cout << endl;
-
     stack<char> s;
 
     for (int i = 0; i < str.length(); i++)
@@ -33,6 +22,22 @@ int main()
     }
 
     cout << "The reversed string is : " << answer << endl;
+}
+
+int main()
+{
+    string str;
+
+    cout << "Enter a string : ";
+    getline(cin, str);
+
+    cout << endl;
+
+    cout << "The string is : " << str << endl;
+
+    cout << endl;
+
+    reverseString(str);
 
     return 0;
 }
