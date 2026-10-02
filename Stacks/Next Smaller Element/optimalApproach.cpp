@@ -1,27 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
-vector<int> nextSmallerElement(vector<int> &nums)
+vector<int> nextSmallerElement(vector<int> &nums, int size)
 {
-    vector<int> answer;
+    stack<int> s;
+    s.push(-1);
 
-    for (int i = 0; i < nums.size(); i++)
+    vector<int> answer(size);
+
+    for (int i = size - 1; i >= 0; i--)
     {
-        bool found = false;
-        for (int j = i + 1; j < nums.size(); j++)
+        int current = nums[i];
+        while (s.top() >= current)
         {
-            if (nums[i] > nums[j])
-            {
-                answer.push_back(nums[j]);
-                found = true;
-                break;
-            }
+            s.pop();
         }
-        if (found == false)
-        {
-            answer.push_back(-1);
-        }
+        answer[i] = s.top();
+        s.push(current);
     }
 
     return answer;
@@ -44,7 +41,7 @@ int main()
         cin >> nums[i];
     }
 
-    cout<<endl;
+    cout << endl;
 
     cout << "The array is : { ";
 
@@ -61,7 +58,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    vector<int> answer = nextSmallerElement(nums);
+    vector<int> answer = nextSmallerElement(nums, size);
 
     cout << "The array with next smaller element is : { ";
 
