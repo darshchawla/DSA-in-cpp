@@ -1,25 +1,23 @@
 #include <iostream>
 #include <queue>
-#include <stack>
 using namespace std;
 
 queue<int> reverse(queue<int> &q)
 {
-    stack<int> s;
-
-    while (!q.empty())
+    if (q.empty())
     {
-        int element = q.front();
-        q.pop();
-        s.push(element);
+        return q;
     }
 
-    while (!s.empty())
-    {
-        int element = s.top();
-        s.pop();
-        q.push(element);
-    }
+    // removing front element
+    int element = q.front();
+    q.pop();
+
+    // recursive call
+    reverse(q);
+
+    // inserting removed element
+    q.push(element);
 
     return q;
 }
