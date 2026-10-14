@@ -7,14 +7,14 @@ int main()
 {
     vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
 
-    unordered_map<int, int> m;
+    unordered_map<int, int> mpp;
 
     for (int i = 0; i < nums.size(); i++)
     {
-        m[nums[i]]++;
+        mpp[nums[i]]++;
     }
 
-    for (auto it : m)
+    for (auto it : mpp)
     {
         cout << it.first << " -> " << it.second << endl;
     }
