@@ -11,13 +11,14 @@ int main()
 
     for (int i = 0; i < size; i++)
     {
-        hash[arr[i]-'a']++;
+        hash[arr[i] - 'a']++;
     }
 
     for (int i = 0; i < 26; i++)
     {
-        if(hash[i]>0){
-            cout << "Frequency of "<<char(i + 'a')<< " is : " << hash[i];
+        if (hash[i] > 0)
+        {
+            cout << "Frequency of " << char(i + 'a') << " is : " << hash[i];
             cout << endl;
             cout << endl;
         }
